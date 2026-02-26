@@ -56,7 +56,7 @@ cd PRUEBA-T-CNICA-FULLSTACK
 Make sure MongoDB is running locally on port 27017, or start it with Docker:
 
 ```bash
-docker run -d -p 27017:27017 --name mongo mongo:7
+docker run -d -p 27017:27017 --name mongo mongo:latest
 ```
 
 ### 3. Backend
