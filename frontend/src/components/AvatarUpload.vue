@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { uploadAvatarApi } from '../api/user';
+import { resolveAvatarUrl } from '../api';
 
 const props = defineProps<{
   currentUrl: string | null;
@@ -32,7 +33,7 @@ async function handleFileChange(event: Event) {
 <template>
   <div class="avatar-upload">
     <div class="avatar-preview" @click="fileInput?.click()">
-      <img v-if="currentUrl" :src="currentUrl" alt="Avatar" />
+      <img v-if="currentUrl" :src="resolveAvatarUrl(currentUrl)!" alt="Avatar" />
       <span v-else class="upload-icon">+</span>
       <div class="avatar-overlay">{{ uploading ? 'Uploading...' : 'Change' }}</div>
     </div>

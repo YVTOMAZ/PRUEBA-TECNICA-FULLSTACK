@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { User } from '../types';
+import { resolveAvatarUrl } from '../api';
 
 defineProps<{
   user: User;
@@ -13,7 +14,7 @@ defineEmits<{
 <template>
   <div class="profile-card">
     <div class="profile-avatar">
-      <img v-if="user.avatarUrl" :src="user.avatarUrl" :alt="user.name" />
+      <img v-if="user.avatarUrl" :src="resolveAvatarUrl(user.avatarUrl)!" :alt="user.name" />
       <div v-else class="avatar-placeholder">{{ user.name.charAt(0).toUpperCase() }}</div>
     </div>
     <div class="profile-info">

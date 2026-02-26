@@ -24,4 +24,11 @@ api.interceptors.response.use(
   },
 );
 
+export function resolveAvatarUrl(avatarUrl: string | null): string | null {
+  if (!avatarUrl) return null;
+  if (avatarUrl.startsWith('http')) return avatarUrl;
+  const base = (import.meta.env.VITE_API_URL || 'http://localhost:4000/api').replace(/\/api\/?$/, '');
+  return `${base}${avatarUrl}`;
+}
+
 export default api;
